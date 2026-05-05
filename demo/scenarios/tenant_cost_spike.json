@@ -1,0 +1,16 @@
+{
+  "scenario": "COST_ANOMALY",
+  "description": "Tenant at 90% budget utilization due to looping agents",
+  "tenant_id": "tenant_abuse_001",
+  "expected_decision": "ANOMALY_DETECTED",
+  "expected_causal_chain": [
+    "Tenant at 90% budget utilization",
+    "3 agents with retry loops consuming 70% of spend",
+    "Root cause: agents retry on API 500 errors without backoff"
+  ],
+  "recommended_actions": [
+    "Review agent configurations for retry loops",
+    "Set per-agent execution rate limits",
+    "Enable cost alerts at 70% budget threshold"
+  ]
+}

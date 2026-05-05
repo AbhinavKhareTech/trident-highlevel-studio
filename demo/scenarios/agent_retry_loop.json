@@ -1,0 +1,14 @@
+{
+  "scenario": "RETRY_LOOP_DETECTED",
+  "description": "Agent with LLM > API > LLM retry loop averaging 7 iterations per execution",
+  "tenant_id": "tenant_0001",
+  "agent_id": "agent_loop_001",
+  "expected_decision": "CRITICAL",
+  "expected_signals": ["RETRY_LOOP", "COST_OUTLIER"],
+  "context": {
+    "loop_count": 7,
+    "excess_llm_calls_per_execution": 5,
+    "total_excess_cost_7d": "$15.00",
+    "root_cause": "API node returns 500, triggering LLM retry with same prompt"
+  }
+}

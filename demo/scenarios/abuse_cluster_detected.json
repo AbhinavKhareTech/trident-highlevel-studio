@@ -1,0 +1,12 @@
+{
+  "scenario": "ABUSE_CLUSTER",
+  "description": "12 tenants with >95% identical agent configs deployed simultaneously, sharing a suspicious external MCP server",
+  "cluster_size": 12,
+  "shared_resource": "https://mcp.shady-service.com/tools",
+  "expected_signals": ["CONFIG_CLONE_RING", "SHARED_MCP_CLUSTER"],
+  "context": {
+    "all_accounts_created_within": "48 hours",
+    "identical_agent_structure": "6 nodes, 3 tools",
+    "likely_single_operator": true
+  }
+}

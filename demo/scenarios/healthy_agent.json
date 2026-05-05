@@ -1,0 +1,13 @@
+{
+  "scenario": "HEALTHY_AGENT",
+  "description": "Normal agent with 2-3 step executions, low cost and high success rate",
+  "tenant_id": "tenant_0200",
+  "agent_id": "agent_0200_00",
+  "expected_decision": "HEALTHY",
+  "expected_signals": [],
+  "context": {
+    "avg_cost_per_execution": "$0.003",
+    "success_rate": "98%",
+    "avg_latency_ms": 1200
+  }
+}

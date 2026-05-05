@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trident-highlevel"
+version = "0.1.0"
+description = "Real-time Agent Studio Runtime Intelligence for HighLevel, built on BGI Trident graph reasoning platform"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "Abhinav Khare", email = "abhinav@ahinsaai.com"},
+]
+dependencies = [
+    "networkx>=3.2",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+ml = [
+    "xgboost>=2.0",
+    "scikit-learn>=1.4",
+    "pandas>=2.2",
+    "torch>=2.0",
+    "torch-geometric>=2.5",
+    "dgl>=1.1",
+]
+live = [
+    "httpx>=0.27",
+    "pydantic>=2.5",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=4.1",
+    "ruff>=0.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+"src/data/*" = ["E501"]
